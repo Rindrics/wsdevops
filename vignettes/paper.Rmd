@@ -1,0 +1,39 @@
+---
+title: "my noble research"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{paper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(wsdevops)
+```
+# Introduction
+# Materials & methods
+こんなデータをつかいました
+
+`head(iris)`
+
+どうでしょうか
+
+```{r}
+data(iris)
+nrow(iris)
+colnames(iris)
+```
+
+
+# Reults & discussion
+
+```{r}
+my_plot(iris)
+```
