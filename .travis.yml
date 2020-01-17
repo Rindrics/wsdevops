@@ -1,0 +1,17 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+warnings_are_errors: false
+cache: packages;
+script:
+  - Rscript -e 'rmarkdown::render("vignettes/paper.Rmd")'
+deploy:
+  provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file: "vignettes/paper.html"
+  skip_cleanup: true
+  on:
+    tags: no
+    branch:
+      - master
+      - dev
