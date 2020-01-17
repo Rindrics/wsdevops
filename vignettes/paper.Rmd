@@ -15,10 +15,10 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, include = FALSE}
-devtools::load_all() 
-library(wsdevops)
 library(ggplot2)
-library(tidyverse)
+library(dplyr)
+devtools::load_all(".")
+data(my_iris)
 table_nums <- captioner::captioner(prefix = "Table")
 table_cap  <- table_nums(name = "iristable", 
                          caption = "Summary of iris data")
@@ -74,7 +74,7 @@ R言語では、プログラムをパッケージとして開発することに�
 
 # Materials & methods
 本研究にはirisデータを使いました。
-irisデータは`r length(unique(iris$Species))`種（`r unique(iris$Species)`）のアヤメについて、花弁と萼片の長さと幅を記録したサンプルデータです。
+irisデータは`r length(unique(my_iris$Species))`種（`r unique(my_iris$Species)`）のアヤメについて、花弁と萼片の長さと幅を記録したサンプルデータです。
 
 
 ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。
@@ -92,7 +92,7 @@ irisデータは`r length(unique(iris$Species))`種（`r unique(iris$Species)`�
 
 `r table_nums("iristable")`
 ```{r fig.cap = table_cap, echo = FALSE}
-iris %>%
+my_iris %>%
   group_by(Species) %>%
   summarize("Sepal Lqength (mm)" = my_range(Sepal.Length),
             "Sepal Width (mm)" = my_range(Sepal.Width),
@@ -121,7 +121,7 @@ iris %>%
 ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。
 
 ```{r, fig.cap = sepal, echo = FALSE}
-iris %>%
+my_iris %>%
   ggplot(aes(Sepal.Length, Sepal.Width, color = Species)) +
   geom_point()
 ```
@@ -139,7 +139,7 @@ iris %>%
 ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。ぞうの卵は大きいぞう。
 
 ```{r, fig.cap = petal, echo = FALSE}
-iris %>%
+my_iris %>%
   ggplot(aes(Petal.Length, Petal.Width, color = Species)) +
   geom_point()
 ```
