@@ -1,7 +1,11 @@
-catenate_by_endash <- function(range) {
-  start <- sprintf("%.1f", range[1])
-  end   <- sprintf("%.1f", range[2])
-  return(paste(start, end, sep = "--"))
+#' Catenate two characters by endash
+#'
+#' @param x First arg in character
+#' @param y Second arg in character
+cat_endash <- function(x, y) {
+  if (!is.character(x) || !is.character(y)) stop("Give me character args")
+  paste(x, y, sep = "--")
+}
 }
 
 #' @export
