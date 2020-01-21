@@ -11,7 +11,7 @@ deploy:
   file: "vignettes/paper.html"
   skip_cleanup: true
   on:
-    tags: no
+    tags: yes
     branch:
       - master
       - dev
