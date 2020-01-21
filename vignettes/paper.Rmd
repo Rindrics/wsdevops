@@ -118,10 +118,10 @@ irisデータは`r length(unique(my_iris$Species))`種（`r unique(my_iris$Speci
 ```{r fig.cap = table_cap, echo = FALSE}
 my_iris %>%
   group_by(Species) %>%
-  summarize("Sepal Lqength (mm)" = my_range(Sepal.Length),
-            "Sepal Width (mm)" = my_range(Sepal.Width),
-            "Petal Length (mm)" = my_range(Petal.Length),
-            "Petal Width (mm)" = my_range(Petal.Width)) %>%
+  summarize("Sepal Lqength (mm)" = range4table(Sepal.Length),
+            "Sepal Width (mm)" = range4table(Sepal.Width),
+            "Petal Length (mm)" = range4table(Petal.Length),
+            "Petal Width (mm)" = range4table(Petal.Width)) %>%
   knitr::kable()
   
 ```
