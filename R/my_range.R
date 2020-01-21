@@ -15,9 +15,17 @@ print_decimal <- function(x, decimals) {
   sprintf(paste0("%.", decimals, "f"), x)
 }
 
+
+#' Print range of given arg for table output
+#'
+#' @inheritParams print_decimal
+#' @param x Numeric to calculate range
 #' @export
-my_range <- function(x) {
-  x %>%
-    range() %>%
-    catenate_by_endash()
+range4table <- function(x, decimals = 1) {
+  ranges <- range(x)
+
+  start <- print_decimal(ranges[1], decimals = decimals)
+  end   <- print_decimal(ranges[2], decimals = decimals)
+
+  cat_endash(start, end)
 }
